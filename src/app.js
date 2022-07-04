@@ -2,6 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import pkg from '../package.json' assert { type: "json" };
 import matchesRoutes from './routes/matches.routes.js'
+import authRoutes from './routes/auth.routes.js'
 
 
 const app = express();
@@ -23,6 +24,7 @@ app.get('/', (req,res) => {
     })
 });
 
-app.use('/matches', matchesRoutes)
+app.use('/api/matches', matchesRoutes)
+app.use('/api/auth', authRoutes)
 
 export default app;

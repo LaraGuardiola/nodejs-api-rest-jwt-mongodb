@@ -5,10 +5,10 @@ export const createMatch = async (req, res) => {
     const {category, gameMode, blueGoals, orangeGoals} = req.body
 
     const newMatch = new Match({
-        category: req.body.category,
-        gameMode: req.body.gameMode,
-        blueGoals: req.body.blueGoals,
-        orangeGoals: req.body.orangeGoals
+        category: category,
+        gameMode: gameMode,
+        blueGoals: blueGoals,
+        orangeGoals: orangeGoals
     })
 
     //it's asynchronous because it takes some time to post a new match
