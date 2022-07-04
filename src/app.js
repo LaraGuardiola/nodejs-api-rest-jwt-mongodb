@@ -12,6 +12,7 @@ app.set('pkg', pkg);
 
 //prints in console the verb of the http request and its http code
 app.use(morgan('dev'));
+app.use(express.json())
 
 app.get('/', (req,res) => {
     res.json({
