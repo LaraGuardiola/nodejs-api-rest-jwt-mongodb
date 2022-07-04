@@ -1,4 +1,6 @@
 import User from '../models/User.js'
+import jwt from 'jsonwebtoken'
+import config from '../config.js'
 
 export const signUp = async (req, res) => {
     const { username, email, password } = req.body
@@ -10,8 +12,13 @@ export const signUp = async (req, res) => {
     })
 
     const userSaved = await newUser.save()
-    console.log(newUser)
-    res.status(201).json(userSaved)
+
+    //signing the token with jwt
+    const token = jwt.sign({id: userSaved.id},config.SECRET,{
+        expiresIn: 86400 //24 hours
+    })
+
+    res.status(201).json({token})
 
 }
 
