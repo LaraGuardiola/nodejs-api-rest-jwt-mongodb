@@ -40,7 +40,3 @@ export const deleteMatchById = async (req, res) => {
     await Match.findByIdAndDelete(matchId)
     res.status(204).json()
 }
-
-export const sayHello = () => {
-    console.log('hello')
-}
