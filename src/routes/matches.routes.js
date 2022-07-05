@@ -7,19 +7,7 @@ import { authJwt } from '../middlewares' //validates token and it's payload (the
 //each time user goes to /matches route, will get all the matches served by the controller (we use the reference of the getMatches function)
 /**
  * @swagger
- * /bro:
- *   get:
- *     description: test
- *     responses:
- *       200:
- *         description: displays message test
- */
- router.get('/', (req, res) => {
-    res.status(200).json({message: 'test'})
-})
-/**
- * @swagger
- * /catchphrases:
+ * /api/matches:
  *   get:
  *     description: All catchphrases
  *     responses:

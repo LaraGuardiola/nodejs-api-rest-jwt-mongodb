@@ -7,6 +7,7 @@ app.listen(4000)
 
 console.log('server listen on port',4000)
 
+//swagger implementation
 const swaggerOptions = {
     swaggerDefinition: {
         info: {
@@ -14,7 +15,7 @@ const swaggerOptions = {
             description: 'A REST API build with express, mongoose and mongodb with jwt auth and password encryption'
         }
     },
-    apis: ['src/routes/*.js']
+    apis: ['src/routes/matches.routes.js','src/routes/auth.routes.js']
 }
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions)
