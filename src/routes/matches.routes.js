@@ -7,12 +7,21 @@ import { authJwt } from '../middlewares' //validates token and it's payload (the
 //each time user goes to /matches route, will get all the matches served by the controller (we use the reference of the getMatches function)
 router.get('/', matchesCtrl.getMatches)
 
-router.post('/', [authJwt.verifyToken, authJwt.isModerator], matchesCtrl.createMatch)
+router.post('/', [
+    authJwt.verifyToken, 
+    authJwt.isModerator
+], matchesCtrl.createMatch)
 
 router.get('/:matchId', matchesCtrl.getMatchById)
 
-router.put('/:matchId', [authJwt.verifyToken, authJwt.isAdmin], matchesCtrl.updateMatchById)
+router.put('/:matchId', [
+    authJwt.verifyToken, 
+    authJwt.isAdmin
+], matchesCtrl.updateMatchById)
 
-router.delete('/:matchId', [authJwt.verifyToken, authJwt.isAdmin], matchesCtrl.deleteMatchById)
+router.delete('/:matchId', [
+    authJwt.verifyToken, 
+    authJwt.isAdmin
+], matchesCtrl.deleteMatchById)
 
 export default router;
