@@ -11,8 +11,8 @@ router.post('/', [authJwt.verifyToken, authJwt.isModerator], matchesCtrl.createM
 
 router.get('/:matchId', matchesCtrl.getMatchById)
 
-router.put('/:matchId', [authJwt.verifyToken, authJwt.isModerator], matchesCtrl.updateMatchById)
+router.put('/:matchId', [authJwt.verifyToken, authJwt.isAdmin], matchesCtrl.updateMatchById)
 
-router.delete('/:matchId', [authJwt.verifyToken, authJwt.isModerator], matchesCtrl.deleteMatchById)
+router.delete('/:matchId', [authJwt.verifyToken, authJwt.isAdmin], matchesCtrl.deleteMatchById)
 
 export default router;

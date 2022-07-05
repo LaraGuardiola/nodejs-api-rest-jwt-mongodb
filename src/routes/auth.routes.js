@@ -1,8 +1,9 @@
 import {Router} from 'express'
 import * as authCtrl from '../controllers/auth.controller.js'
+import { verifySignup } from '../middlewares'
 const router = Router()
 
-router.post('/signup', authCtrl.signUp)
+router.post('/signup', [verifySignup.checkDuplicateUsernameOrEmail, verifySignup.checkRolesExisted], authCtrl.signUp)
 router.post('/signin', authCtrl.signIn)
 
 
