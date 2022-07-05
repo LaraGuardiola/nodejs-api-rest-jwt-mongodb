@@ -25,7 +25,8 @@ app.get('/', (req,res) => {
         description: app.get('pkg').description,
         version: app.get('pkg').version
     })
-});
+})
+
 
 app.use('/api/matches', matchesRoutes)
 app.use('/api/auth', authRoutes)
