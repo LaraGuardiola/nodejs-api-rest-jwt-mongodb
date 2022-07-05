@@ -34,7 +34,7 @@ export const signUp = async (req, res) => {
 }
 
 export const signIn = async (req, res) => {
-    
+
     const userFound = await User.findOne({email: req.body.email}).populate("roles")
     
     //if user doesnt exist
@@ -45,7 +45,9 @@ export const signIn = async (req, res) => {
     //if password doesn't match
     if(!matchPassword) return res.status(401).json({token: null, message: 'Invalid password'})
 
-    console.log(userFound)
+    const token = jwt.sign({id: userFound._id}, config.SECRET,{
+        expiresIn: 86400
+    })
 
-    res.json({token:''})
+    res.json({token})
 }
