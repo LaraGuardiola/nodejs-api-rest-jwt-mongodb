@@ -3,7 +3,7 @@ import './database.js'
 import swaggerJsDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express'
 
-app.listen(4000)
+app.listen(process.env.PORT || 4000)
 
 console.log('server listen on port',4000)
 
