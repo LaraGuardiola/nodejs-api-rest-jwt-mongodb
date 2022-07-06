@@ -1,6 +1,6 @@
 import express from 'express';
 import morgan from 'morgan';
-import pkg from '../package.json' assert { type: "json" };
+//import pkg from '../package.json' assert { type: "json" };
 import {createRoles} from './libs/initialSetup.js'
 import matchesRoutes from './routes/matches.routes.js'
 import authRoutes from './routes/auth.routes.js'
@@ -20,10 +20,10 @@ app.use(express.json())
 
 app.get('/', (req,res) => {
     res.json({
-        name: app.get('pkg').name,
-        author: app.get('pkg').author,
-        description: app.get('pkg').description,
-        version: app.get('pkg').version
+        name: 'test',
+        author: 'Sergio',
+        description: 'test-api',
+        version: '1.0.0'
     })
 })
 
