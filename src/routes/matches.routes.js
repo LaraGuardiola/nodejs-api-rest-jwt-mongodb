@@ -2,7 +2,7 @@ import { Router } from 'express'
 const router = Router()
 
 import * as matchesCtrl from '../controllers/matches.controller.js'
-import { authJwt } from '../middlewares' //validates token and it's payload (the id to check if the user exists)
+import { authJwt } from '../middlewares/index.js' //validates token and it's payload (the id to check if the user exists)
 
 //each time user goes to /matches route, will get all the matches served by the controller (we use the reference of the getMatches function)
 /**
