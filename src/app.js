@@ -10,7 +10,7 @@ import userRoutes from './routes/user.routes.js'
 const app = express();
 createRoles()
 
-app.set('pkg', pkg);
+//app.set('pkg', pkg);
 
 //MIDDLEWARES
 
